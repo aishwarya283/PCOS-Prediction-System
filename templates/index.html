@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PCOS Prediction Input Portal</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <h1>PCOS Prediction Input Portal</h1>
+    <p>Please enter the patient clinical data below for analysis.</p>
+<div class="image-section">
+    <div class="image-box">
+        <h3>Common Signs of PCOS</h3>
+        <img src="{{ url_for('static', filename='PCOS-symptoms.png') }}" 
+             alt="PCOS Signs">
+    </div>
+</div>
+    <form action="/predict" method="post">
+
+        <div class="grid">
+
+            <!-- Physical Metrics -->
+            <fieldset>
+                <legend>Physical Metrics</legend>
+
+                <input type="number" step="any" name="Age" placeholder="Age">
+                <input type="number" step="any" name="Weight" placeholder="Weight (kg)">
+                <input type="number" step="any" name="Height" placeholder="Height (cm)">
+                <input type="number" step="any" name="BMI" placeholder="BMI">
+                <input type="number" step="any" name="BloodGroup" placeholder="Blood Group">
+                <input type="number" step="any" name="Pulse" placeholder="Pulse rate (bpm)">
+                <input type="number" step="any" name="RR" placeholder="Respiratory Rate">
+                <input type="number" step="any" name="Hip" placeholder="Hip (inch)">
+                <input type="number" step="any" name="Waist" placeholder="Waist (inch)">
+                <input type="number" step="any" name="WHR" placeholder="Waist-Hip Ratio">
+                <input type="number" step="any" name="BPSys" placeholder="BP Systolic">
+                <input type="number" step="any" name="BPDia" placeholder="BP Diastolic">
+
+            </fieldset>
+
+            <!-- Hormonal & Lab Profile -->
+            <fieldset>
+                <legend>Hormonal & Lab Profile</legend>
+
+                <input type="number" step="any" name="Hb" placeholder="Hemoglobin (g/dl)">
+                <input type="number" step="any" name="HCG1" placeholder="I Beta-HCG">
+                <input type="number" step="any" name="HCG2" placeholder="II Beta-HCG">
+                <input type="number" step="any" name="FSH" placeholder="FSH">
+                <input type="number" step="any" name="LH" placeholder="LH">
+                <input type="number" step="any" name="FSHLH" placeholder="FSH/LH Ratio">
+                <input type="number" step="any" name="TSH" placeholder="TSH">
+                <input type="number" step="any" name="AMH" placeholder="AMH">
+                <input type="number" step="any" name="PRL" placeholder="PRL">
+                <input type="number" step="any" name="VitD3" placeholder="Vitamin D3">
+                <input type="number" step="any" name="PRG" placeholder="Progesterone">
+                <input type="number" step="any" name="RBS" placeholder="RBS (mg/dl)">
+                <input type="number" step="any" name="Endometrium" placeholder="Endometrium (mm)">
+
+            </fieldset>
+
+            <!-- Clinical Signs & Lifestyle -->
+            <fieldset>
+                <legend>Clinical Signs & Lifestyle</legend>
+
+                <input type="number" step="any" name="WeightGain" placeholder="Weight Gain (1/0)">
+                <input type="number" step="any" name="CycleRI" placeholder="Cycle (1=Reg,0=Irreg)">
+                <input type="number" step="any" name="CycleLength" placeholder="Cycle Length (days)">
+                <input type="number" step="any" name="HairGrowth" placeholder="Hair Growth (1/0)">
+                <input type="number" step="any" name="SkinDark" placeholder="Skin Darkening (1/0)">
+                <input type="number" step="any" name="HairLoss" placeholder="Hair Loss (1/0)">
+                <input type="number" step="any" name="Pimples" placeholder="Pimples (1/0)">
+                <input type="number" step="any" name="FastFood" placeholder="Fast Food (1/0)">
+                <input type="number" step="any" name="Exercise" placeholder="Exercise (1/0)">
+
+            </fieldset>
+
+        </div>
+
+        <button type="submit">Analyze Prediction</button>
+
+        {% if prediction_text %}
+            <h3 class="result">{{ prediction_text }}</h3>
+        {% endif %}
+
+    </form>
+
+</div>
+
+</body>
+</html>

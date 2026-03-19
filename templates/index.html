@@ -16,8 +16,8 @@
              alt="PCOS Signs">
     </div>
 </div>
-    <form onkeydown="if(event.key==='Enter'){event.preventDefault();let f=[...this.querySelectorAll('input')];f[f.indexOf(document.activeElement)+1]?.focus();}">
-
+    <form action="/predict" method="post" 
+onkeydown="if(event.key==='Enter'){event.preventDefault();this.querySelectorAll('input')[Array.from(this.querySelectorAll('input')).indexOf(document.activeElement)+1]?.focus();}">
         <div class="grid">
 
             <!-- Physical Metrics -->
